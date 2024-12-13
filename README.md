@@ -46,7 +46,7 @@ p is used for sending generic payloads, such as SenML encoded data belonging to 
 [
   {"bn": "urn:dev:mac:00170d451f62:", "bt": 176627612.2, "n": "sensor/gps", "x": "Sensor malfuction", "se": 200, "d": "GPS sensor not connected"},
   {"n": "co2/0", "e": "Bad sensor reading", "se": 200, "d": "Negative value -4 ppm"},
-  {"n": "temperature/0", "e": "Bad sensor reading", "se": 200, "d": "Outside sensing range(-40 to +85): 6387.4"}
+  {"n": "temperature/0", "e": "Bad sensor reading", "se": 200, "d": "Outside sensing range(-40 to +85): 6387.4"},
   {"n": "battery", "e": "Low battery level", "se": 100, "d": "Battery at 12% capacity"}
 ]
 ```
