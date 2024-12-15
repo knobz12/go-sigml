@@ -1,6 +1,11 @@
-package sigml
+package main
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+	)
+
+
 
 type SigMLRecord struct {
 	Bn   string  `json:"bn,omitempty"`   //source device/system
@@ -32,7 +37,7 @@ const (
 type SigMLMessage []SigMLRecord
 
 // Validate tests if a SigML message is well formated
-func (msg SigMLMessage) Validate() error {
+func Validate(msg SigMLMessage)  error {
 	if len(msg) == 0 {
 		return errors.New("empty message")
 	}
@@ -56,4 +61,19 @@ func (msg SigMLMessage) Validate() error {
 	
 	}
 	return nil
+}
+
+func main(){
+
+p := []SigMLRecord{{
+	Bn: "urn:dev:mac:00170d451f62:",
+	Bt: 176627612.2,
+	N:  "Name",
+	PR: "test",
+	XC: "test",
+}}
+//jsonBytes, _ := json.Marshal(p)
+
+
+fmt.Print(Validate(p))
 }
