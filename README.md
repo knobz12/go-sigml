@@ -23,6 +23,10 @@ x stands for eXception and is used for indicating exceptions upstream.
 e stands for Error and is used for indicating different typs of hardware, software and system errors upstream.
 ### s
 s stands for Signal event and is used for transmitting events upstream.
+### pr
+pr stands for policy request and is used to check user policies
+## xc
+xc stands for eXecute command and is used for sending commands to devices 
 
 ### se
 se means Severity and is used to indicate how serious an exception/error/signal is.
@@ -92,7 +96,7 @@ if err == nil {
 
 ```
 
-How to extract custom fields:
+How to normalize the data:
 Validate must be run first to ensure correct data
 ```
 var evt sigml.SigMLMessage
@@ -102,6 +106,7 @@ if err != nil {
 		fmt.Print(err)
 }
 fmt.Println(evt.NormalizeSigMLMessage())
+jsonData, _ := json.MarshalIndent(evt.NormalizeSigMLMessage(), "", "  ")
 ```
 
 How to extract custom fields:
