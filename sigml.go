@@ -34,14 +34,14 @@ const (
 
 type SigMLMessage []SigMLRecord
 
-func (records SigMLMessage) NormalizeSigML() []map[string]interface{} {
-	if len(records) == 0 {
+func (message SigMLMessage) NormalizeSigMLMessage() []map[string]interface{} {
+	if len(message) == 0 {
 		return nil
 	}
 
 	// Extract default `bn` and `bt` from the first record
-	defaultBn := records[0].Bn
-	defaultBt := records[0].Bt
+	defaultBn := message[0].Bn
+	defaultBt := message[0].Bt
 
 	// Map severity levels to strings
 	severityMap := map[Severity]string{
@@ -55,7 +55,7 @@ func (records SigMLMessage) NormalizeSigML() []map[string]interface{} {
 
 	// Normalize all records
 	var normalized []map[string]interface{}
-	for _, record := range records {
+	for _, record := range message {
 		// Use defaults if `bn` or `bt` are missing
 		bn := record.Bn
 		if bn == "" {
