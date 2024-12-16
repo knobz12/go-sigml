@@ -3,6 +3,7 @@ package sigml
 import (
 	"errors"
 	"fmt"
+	"reflect"
 )
 
 type SigMLRecord struct {
@@ -113,4 +114,22 @@ func (msg SigMLMessage) Validate() error {
 
 	}
 	return nil
+}
+
+func ExtractField(msg SigMLMessage, fieldName string) []interface{} {
+	var results []interface{}
+
+	// Iterate through each record in the message
+	for _, record := range msg {
+		// Use reflection to get the value of the field
+		val := reflect.ValueOf(record)
+		field := val.FieldByName(fieldName)
+		if field.IsValid() {
+			results = append(results, field.Interface())
+		} else {
+			results = append(results, nil) // If field doesn't exist, append nil
+		}
+	}
+
+	return results
 }
