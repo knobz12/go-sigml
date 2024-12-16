@@ -34,7 +34,7 @@ const (
 
 type SigMLMessage []SigMLRecord
 
-func NormalizeSigML(records []SigMLRecord) []map[string]interface{} {
+func (records SigMLMessage) NormalizeSigML() []map[string]interface{} {
 	if len(records) == 0 {
 		return nil
 	}
