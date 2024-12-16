@@ -91,5 +91,28 @@ if err == nil {
 }
 
 ```
-## Further reading
 
+How to extract custom fields:
+Validate must be run first to ensure correct data
+```
+var evt sigml.SigMLMessage
+evt = append(evt, p)
+err := evt.Validate()
+if err != nil {
+		fmt.Print(err)
+}
+fmt.Println(evt.NormalizeSigMLMessage())
+```
+
+How to extract custom fields:
+Validate must be run first to ensure correct data
+```
+var evt sigml.SigMLMessage
+evt = append(evt, p)
+err := evt.Validate()
+if err != nil {
+		fmt.Print(err)
+}
+fmt.Print(sigml.ExtractField(evt, "Bn"))
+```
+	
