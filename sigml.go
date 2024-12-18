@@ -116,7 +116,7 @@ func (msg SigMLMessage) Validate() error {
 	return nil
 }
 
-func ExtractField(msg SigMLMessage, fieldName string) []interface{} {
+func (msg SigMLMessage) ExtractField(fieldName string) []interface{} {
 	var results []interface{}
 
 	// Iterate through each record in the message

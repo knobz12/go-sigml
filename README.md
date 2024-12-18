@@ -118,6 +118,6 @@ err := evt.Validate()
 if err != nil {
 		fmt.Print(err)
 }
-fmt.Print(sigml.ExtractField(evt, "Bn"))
+fmt.Print(evt.ExtractField("Bn"))
 ```
 	
